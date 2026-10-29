@@ -1,0 +1,15 @@
+name: Hacker Rank
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      saludo:
+        type: choice
+        options: [Resolución, de, algunos ejercisios]
+jobs:
+  saludar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Hola ${{ github.actor }}, commit ${{ github.sha }}"
+      - run: 'echo "Elegiste: ${{ inputs.saludo }}"'
